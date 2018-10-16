@@ -1,6 +1,5 @@
 #include <HotString.au3>
-#include <HotKeySet.au3>
-HotKeySet("^g", GoogleSearch)
+HotKeySet("^g", googleSearch)
 HotStringSet("/g{ENTER}", GoogleSearch)
 Global $sOldClip
 
