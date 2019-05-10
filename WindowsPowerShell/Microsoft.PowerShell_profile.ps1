@@ -2,6 +2,15 @@ New-Alias -Name python2 -Value Start-Python2
 New-Alias -Name python3 -Value Start-Python3
 New-Alias -Name pip2 -Value Start-Pip2
 New-Alias -Name pip3 -Value Start-Pip3
+New-Alias -Name cnpm -Value Start-Cnpm
+
+function Start-Cnpm {
+    npm --registry=https://registry.npm.taobao.org `
+    --cache=$HOME/.npm/.cache/cnpm `
+    --disturl=https://npm.taobao.org/mirrors/node `
+    --userconfig=$HOME/.cnpmrc `
+    $args
+}
 
 function Start-Python2 {
     py -2 $args
