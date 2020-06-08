@@ -92,7 +92,6 @@ fi
 alias ll='ls -halF --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
-alias his='history | grep '
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -101,6 +100,12 @@ alias his='history | grep '
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# Environment variable definitions
+
+if [ -f ~/.bash_environment ]; then
+    . ~/.bash_environment
 fi
 
 # enable programmable completion features (you don't need to enable
