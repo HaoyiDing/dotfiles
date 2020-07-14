@@ -4,3 +4,6 @@ export LC_ALL="zh_CN.UTF-8"
 
 export DISPLAY=localhost:0
 export PULSE_SERVER=tcp:127.0.0.1
+# support wsl2
+# export DISPLAY=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`:0
+# export PULSE_SERVER=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
