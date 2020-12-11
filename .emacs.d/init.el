@@ -5,6 +5,10 @@
 ;; init evil
 (require 'evil)
 (evil-mode 1)
+;; set evil redo support, useless if versioin is later than emacs28
+;; M-x package-install RET undo-tree RET
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
 
 ;; init evil leader
 (global-evil-leader-mode)
@@ -21,7 +25,7 @@
 
 ;; init auctex
 (load "auctex.el" nil t t)
-;; View my PDFs with Evince 
+;; view my PDFs with Evince 
 (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o")))
 (setq TeX-view-program-selection '((output-pdf "Evince")))
 
@@ -34,7 +38,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (company-auctex auctex evil-leader company nord-theme evil))))
+    (undo-tree company-auctex auctex evil-leader company nord-theme evil))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
