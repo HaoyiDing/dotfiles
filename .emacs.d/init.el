@@ -17,17 +17,39 @@
  "e" 'find-file
  "b" 'switch-to-buffer
  "k" 'kill-buffer
- "tv" 'TeX-command-run-all)
+ "tv" 'TeX-command-run-all
+ "oc" 'org-capture
+ "oa" 'org-agenda)
 
 ;; init nord theme
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
 (load-theme 'nord t)
+
+;; init org-mode
+(setq org-agenda-files '("~/OneDrive/org/gtd/inbox.org"
+			 "~/OneDrive/org/gtd/gtd.org"
+			 "~/OneDrive/org/gtd/tickler.org"))
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+			       (file+headline "~/OneDrive/org/gtd/inbox.org" "Tasks")
+			       "* TODO %i%?")
+			      ("T" "Tickler" entry
+			       (file+headline "~/OneDrive/org/gtd/tickler.org" "Tickler")
+			       "* %i%? \n %U")))
+(setq org-refile-targets '(("~/OneDrive/org/gtd/gtd.org" :maxlevel . 3)
+			   ("~/OneDrive/org/gtd/someday.org" :level . 1)
+			   ("~/OneDrive/org/gtd/tickler.org" :maxlevel . 2)))
+(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
 ;; init auctex
 (load "auctex.el" nil t t)
 ;; view my PDFs with Evince 
 (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o")))
 (setq TeX-view-program-selection '((output-pdf "Evince")))
+
+;; use edge to open url in wsl
+(defun browse-url-edge (url &optional new-window) (shell-command (concat "/home/neo/utils/runedge.sh " url)))
+(setq browse-url-browser-function 'browse-url-edge)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
