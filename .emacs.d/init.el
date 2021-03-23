@@ -2,6 +2,9 @@
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize) ;; You might already have this line
 
+;; enable soft wrap
+(global-visual-line-mode 1)
+
 ;; init evil
 (require 'evil)
 (evil-mode 1)
@@ -19,7 +22,12 @@
  "k" 'kill-buffer
  "tv" 'TeX-command-run-all
  "oc" 'org-capture
- "oa" 'org-agenda)
+ "oa" 'org-agenda
+ "or" 'org-refile
+ "ot" 'org-todo
+ "os" 'org-schedule
+ "om" 'org-archive-subtree-default
+ "od" 'org-deadline)
 
 ;; init nord theme
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
@@ -50,6 +58,15 @@
 (defun browse-url-edge (url &optional new-window) (shell-command (concat "/home/neo/utils/runedge.sh " url)))
 (setq browse-url-browser-function 'browse-url-edge)
 
+;; indentation
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+
+;; haskell language sever
+(require 'lsp-mode)
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -60,7 +77,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (undo-tree company-auctex auctex evil-leader company nord-theme evil))))
+    (lsp-haskell lsp-mode gnu-elpa-keyring-update intero undo-tree auctex evil-leader company nord-theme evil))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
