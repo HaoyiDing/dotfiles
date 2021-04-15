@@ -17,17 +17,13 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
- "e" 'find-file
- "b" 'switch-to-buffer
- "k" 'kill-buffer
- "tv" 'TeX-command-run-all
- "oc" 'org-capture
- "oa" 'org-agenda
- "or" 'org-refile
- "ot" 'org-todo
- "os" 'org-schedule
- "om" 'org-archive-subtree-default
- "od" 'org-deadline)
+  "oc" 'org-capture
+  "oa" 'org-agenda
+  "or" 'org-refile
+  "ot" 'org-todo
+  "os" 'org-schedule
+  "om" 'org-archive-subtree-default
+  "od" 'org-deadline)
 
 ;; init nord theme
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
@@ -48,25 +44,10 @@
 			   ("~/OneDrive/org/gtd/tickler.org" :maxlevel . 2)))
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
-;; init auctex
-(load "auctex.el" nil t t)
-;; view my PDFs with Evince 
-(setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o")))
-(setq TeX-view-program-selection '((output-pdf "Evince")))
-
-;; use edge to open url in wsl
-(defun browse-url-edge (url &optional new-window) (shell-command (concat "/home/neo/utils/runedge.sh " url)))
-(setq browse-url-browser-function 'browse-url-edge)
-
 ;; indentation
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq c-basic-offset 4)
-
-;; haskell language sever
-(require 'lsp-mode)
-(add-hook 'haskell-mode-hook #'lsp)
-(add-hook 'haskell-literate-mode-hook #'lsp)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -84,4 +65,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
+ '(default ((t (:family "Source Han Sans HW" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
