@@ -68,10 +68,3 @@
  '(package-selected-packages
    (quote
     (lsp-haskell lsp-mode gnu-elpa-keyring-update intero undo-tree auctex evil-leader company nord-theme evil))))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-  '(default ((t (:family "Source Han Sans HW" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
