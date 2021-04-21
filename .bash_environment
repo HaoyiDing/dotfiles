@@ -2,8 +2,14 @@
 # export LANG="zh_CN.UTF-8" 
 # export LC_ALL="zh_CN.UTF-8" 
 
-export DISPLAY=localhost:0
-export PULSE_SERVER=tcp:127.0.0.1
+# export DISPLAY=localhost:0
+# export PULSE_SERVER=tcp:127.0.0.1
 # support wsl2
 # export DISPLAY=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`:0
 # export PULSE_SERVER=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+if [[ ! $DISPLAY && -S "/tmp/.X11-unix/X0" ]]; then
+    export DISPLAY=:0.0
+    if [[ $XDG_VTNR -eq 2 ]]; then
+        exec /usr/bin/start-ubuntu-desktop.sh
+    fi
+fi

@@ -1,11 +1,13 @@
- (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
-                           
+(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
+
 (package-initialize) ;; You might already have this line
 (setq initial-scratch-message "")
 
 ;; auctex
-(setq TeX-view-program-selection '((output-pdf "SumatraPDF")))
+(setq TeX-view-program-selection '((output-pdf "Evince")))
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-method 'synctex)
 
@@ -72,4 +74,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Han Sans HW" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
+  '(default ((t (:family "Source Han Sans HW" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
