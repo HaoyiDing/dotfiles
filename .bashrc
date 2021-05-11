@@ -115,13 +115,6 @@ if [ -d ~/.local/bin ]; then
     export PATH=$PATH:~/.local/bin
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -168,5 +161,11 @@ function parse_git_dirty {
 		echo ""
 	fi
 }
+
+# vsock support
+if [[ ! $DISPLAY && ! -S "/tmp/.X11-unix/X0" ]]; then
+	export DISPLAY=:0.0
+	socat -b65536 UNIX-LISTEN:/tmp/.X11-unix/X0,fork,mode=777 SOCKET-CONNECT:40:0:x0000x70170000x02000000x00000000 &	
+fi
 
 export PS1="\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \w\[\e[36m\]\`parse_git_branch\`\[\e[m\]\[\e[37m\] \\$\[\e[m\] "
