@@ -162,10 +162,4 @@ function parse_git_dirty {
 	fi
 }
 
-# vsock support
-if [[ ! $DISPLAY && ! -S "/tmp/.X11-unix/X0" ]]; then
-	export DISPLAY=:0.0
-	socat -b65536 UNIX-LISTEN:/tmp/.X11-unix/X0,fork,mode=777 SOCKET-CONNECT:40:0:x0000x70170000x02000000x00000000 &	
-fi
-
 export PS1="\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \w\[\e[36m\]\`parse_git_branch\`\[\e[m\]\[\e[37m\] \\$\[\e[m\] "

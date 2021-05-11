@@ -7,3 +7,4 @@
 # support wsl2
 # export DISPLAY=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`:0
 # export PULSE_SERVER=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+export DISPLAY=:0.0
