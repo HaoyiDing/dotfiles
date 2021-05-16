@@ -33,7 +33,7 @@ main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey myConfig
       toggleStrutsKey XConfig{ modMask = m } = (m, xK_b)
 
 myConfig = def
-    { modMask    = mod4Mask -- Use the "Win" key for the mod key
+    { modMask    = mod1Mask
     , manageHook = myManageHook <+> manageHook desktopConfig
     , layoutHook = desktopLayoutModifiers $ myLayout
     , logHook    = (dynamicLogString def >>= xmonadPropLog)
