@@ -6,6 +6,9 @@
 (package-initialize) ;; You might already have this line
 (setq initial-scratch-message "")
 
+;; disable backup
+(setq make-backup-files nil)
+
 ;; ligature
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'ligature)
@@ -43,6 +46,7 @@
 ;; init evil
 (require 'evil)
 (evil-mode 1)
+
 ;; set evil redo support, useless if versioin is later than emacs28
 ;; M-x package-install RET undo-tree RET
 (global-undo-tree-mode)
@@ -80,9 +84,12 @@
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
 ;; indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq c-basic-offset 4)
+(setq c-basic-offset 4) ; indents 4 chars
+(setq tab-width 4)          ; and 4 char wide for TAB
+(setq indent-tabs-mode nil) ; And force use of spaces
+
+
+(setq inhibit-startup-screen t)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
