@@ -17,3 +17,4 @@
 * nerd-fonts-jetbrains-mono
 * stack
 * xorg-xrdb
+* termsyn

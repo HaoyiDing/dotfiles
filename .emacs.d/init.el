@@ -1,13 +1,13 @@
-(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
-
+(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+                           ("melpa" . "https://elpa.emacs-china.org/melpa/")))
 (package-initialize) ;; You might already have this line
 (setq initial-scratch-message "")
 
 ;; disable backup
-(setq make-backup-files nil)
+;;(setq make-backup-files nil)
+
+(require 'org)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
 ;; ligature
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -69,18 +69,18 @@
 (load-theme 'gruvbox t)
 
 ;; init org-mode
-(setq org-agenda-files '("~/OneDrive/org/gtd/inbox.org"
-			 "~/OneDrive/org/gtd/gtd.org"
-			 "~/OneDrive/org/gtd/tickler.org"))
+(setq org-agenda-files '("~/org/gtd/inbox.org"
+			 "~/org/gtd/gtd.org"
+			 "~/org/gtd/tickler.org"))
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
-			       (file+headline "~/OneDrive/org/gtd/inbox.org" "Tasks")
+			       (file+headline "~/org/gtd/inbox.org" "Tasks")
 			       "* TODO %i%?")
 			      ("T" "Tickler" entry
-			       (file+headline "~/OneDrive/org/gtd/tickler.org" "Tickler")
+			       (file+headline "~/org/gtd/tickler.org" "Tickler")
 			       "* %i%? \n %U")))
-(setq org-refile-targets '(("~/OneDrive/org/gtd/gtd.org" :maxlevel . 3)
-			   ("~/OneDrive/org/gtd/someday.org" :level . 1)
-			   ("~/OneDrive/org/gtd/tickler.org" :maxlevel . 2)))
+(setq org-refile-targets '(("~/org/gtd/gtd.org" :maxlevel . 3)
+			   ("~/org/gtd/someday.org" :level . 1)
+			   ("~/org/gtd/tickler.org" :maxlevel . 2)))
 (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
 ;; indentation
@@ -88,7 +88,13 @@
 (setq tab-width 4)          ; and 4 char wide for TAB
 (setq indent-tabs-mode nil) ; And force use of spaces
 
+;; set transparency
+;;(set-frame-parameter (selected-frame) 'alpha '(<active> . <inactive>))
+;;(set-frame-parameter (selected-frame) 'alpha <both>)
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
+;; disable startup
 (setq inhibit-startup-screen t)
 
 (custom-set-faces
@@ -96,10 +102,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB  " :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB  " :slant normal :weight normal :height 160 :width normal)))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(global-display-line-numbers-mode t))
+ '(global-display-line-numbers-mode t)
+ '(line-number-mode nil)
+ '(menu-bar-mode nil)
+ '(package-selected-packages '(company auctex undo-tree gruvbox-theme evil-leader))
+ '(scroll-bar-mode nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
