@@ -22,7 +22,7 @@ local function init()
   local use = packer.use
   packer.reset()
 
-  use {"glepnir/zephyr-nvim", config = [[vim.cmd('colorscheme zephyr')]]}
+--   use {"glepnir/zephyr-nvim", config = [[vim.cmd('colorscheme zephyr')]]}
 
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
@@ -220,7 +220,9 @@ local function init()
 
   -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
   -- Prettier,这个是全局的
-  use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
+--   use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
+  
+  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
   -- editorconfig
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
@@ -241,11 +243,11 @@ local function init()
     }
   }
 
-  use {
-    "npxbr/glow.nvim",
-    run = ":GlowInstall",
-    cmd = "Glow"
-  }
+--   use {
+--     "npxbr/glow.nvim",
+--     run = ":GlowInstall",
+--     cmd = "Glow"
+--   }
 
   -- emmei插件 使用 ,, 触发补全，
   use {
