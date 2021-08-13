@@ -222,7 +222,7 @@ local function init()
   -- Prettier,这个是全局的
 --   use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
   
-  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}, config = [[vim.cmd('colorscheme gruvbox')]]}
 
   -- editorconfig
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
