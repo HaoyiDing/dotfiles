@@ -14,7 +14,7 @@ return require('packer').startup(
     function()
         use { 'wbthomason/packer.nvim', opt = true }
         -- Theme
-	use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+        use 'eddyekofo94/gruvbox-flat.nvim'
         -- Status line
         use 'glepnir/galaxyline.nvim'
         -- For hex color

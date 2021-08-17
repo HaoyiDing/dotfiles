@@ -17,16 +17,16 @@ gl.short_line_list = { 'defx', 'packager', 'vista' }
 
 -- Colors
 local colors = {
-    bg = '#282a36',
-    fg = '#f8f8f2',
-    section_bg = '#4f4f4f',
-    yellow = '#f1fa8c',
-    cyan = '#8be9fd',
-    green = '#50fa7b',
-    orange = '#ffb86c',
-    magenta = '#ff79c6',
-    blue = '#8be9fd',
-    red = '#ff5555'
+    bg = '#282828',
+    fg = '#ebdbb2',
+    section_bg = '#32302f',
+    yellow = '#d79921',
+    cyan = '#689d6a',
+    green = '#98971a',
+    orange = '#d65d0e',
+    magenta = '#b16286',
+    blue = '#458588',
+    red = '#cc241d'
 }
 
 -- Local helper functions
@@ -68,8 +68,8 @@ end
 -- Left side
 gls.left[1] = {
     FirstElement = {
-        provider = function() return '   ' end,
-        highlight = { colors.cyan, colors.section_bg },
+        provider = function() return '  ' end,
+        highlight = { colors.yellow, colors.section_bg },
         separator = '',
         separator_highlight = {colors.bg, colors.section_bg}
     },
