@@ -1,0 +1,11 @@
+* DWM
+  * actualfullscreen
+  * alpha
+  * fixborders
+  * noborderfloatingfix
+  * gruvbox
+  * systray
+* ST
+  * gruvbox-material
+  * ligatures
+  * alpha
